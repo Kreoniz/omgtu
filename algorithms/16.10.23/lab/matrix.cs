@@ -122,7 +122,7 @@ class Matrix {
 
         int[] checkedrows = new int[n];
 
-        for (int i = 0; i < m - 1; i++) {
+        for (int i = 0; i < n; i++) {
             int count = 0;
             for (int j = 0; j < n; j++) {
                 if (i == j || checkedrows[j] == 1) {
@@ -136,7 +136,9 @@ class Matrix {
                     checkedrows[j] = 1;
                 }
             }
-            samerows[i] = count + 1;
+            if (count != 0) {
+                samerows[i] = count + 1;
+            }
         }
 
 
