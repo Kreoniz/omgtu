@@ -7,7 +7,7 @@ using System.Linq;
 // элемента массива
 // 3. Заменить элементы строки с наибольшей суммой четных элементов на
 // единички, если таких строк несколько, заменить в каждой строке элементы
-class Negative {
+class Arrays2D:{
     public static void printMatrix(int[, ] matrix) {
         int nrows = matrix.GetLength(0);
         int ncols = matrix.GetLength(1);
