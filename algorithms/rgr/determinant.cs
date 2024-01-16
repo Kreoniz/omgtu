@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 
 class Determinant
 {
@@ -92,6 +91,5 @@ class Determinant
 
     Console.WriteLine("\nОпределитель:");
     Console.WriteLine(GetDeterminant(matrix));
-    
   }
 }
