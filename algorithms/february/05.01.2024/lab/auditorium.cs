@@ -26,9 +26,7 @@ class Auditorium {
     Console.WriteLine($"Этаж:\t{this.Floor}");
     Console.WriteLine($"Номер аудитории:\t{this.Room}");
   }
-}
 
-class Menu {
   public static void AddAuditorium(List<Auditorium> auditoria) {
     int pointer = 0;
     bool broken = false;
@@ -174,6 +172,16 @@ class Menu {
   }
 }
 
+class Menu {
+  public static void PrintAuditoria(List<Auditorium> auditoria) {
+    for (int i = 0; i < auditoria.Count; i++) {
+     Console.WriteLine();
+      Console.WriteLine($"Аудитория #{i + 1}:");
+      auditoria[i].PrintInfo();
+    }
+  }
+}
+
 class Program {
   public static List<Auditorium> SelectBySeats(List<Auditorium> auditoria, int seatCount) {
     List<Auditorium> Selected = new List<Auditorium>();
@@ -223,14 +231,6 @@ class Program {
     return Selected;
   }
 
-  public static void PrintAuditoria(List<Auditorium> auditoria) {
-    for (int i = 0; i < auditoria.Count; i++) {
-      Console.WriteLine();
-      Console.WriteLine($"Аудитория #{i + 1}:");
-      auditoria[i].PrintInfo();
-    }
-  }
-
   public static void DisplayHelp() {
     Console.WriteLine("Помощь:");
     Console.WriteLine("'?' - для вывода помощи");
@@ -272,7 +272,7 @@ class Program {
           break;
         case "все":
           Console.WriteLine("Все аудитории:");
-          PrintAuditoria(AuditoriumDatabase);
+          Menu.PrintAuditoria(AuditoriumDatabase);
           break;
         case "места":
           Console.WriteLine("Аудитории с достаточным кол-вом мест:");
@@ -300,7 +300,7 @@ class Program {
             Console.WriteLine("Команда отменена");
           } else {
             auditoria = SelectBySeats(AuditoriumDatabase, seats);
-            PrintAuditoria(auditoria);
+            Menu.PrintAuditoria(auditoria);
           }
           break;
         case "проектор":
@@ -329,7 +329,7 @@ class Program {
             Console.WriteLine("Команда отменена");
           } else {
             auditoria = SelectyBySeatsWithProjector(AuditoriumDatabase, seats);
-            PrintAuditoria(auditoria);
+            Menu.PrintAuditoria(auditoria);
           }
           break;
         case "компьютер":
@@ -358,7 +358,7 @@ class Program {
             Console.WriteLine("Команда отменена");
           } else {
             auditoria = SelectyBySeatsWithComputers(AuditoriumDatabase, seats);
-            PrintAuditoria(auditoria);
+            Menu.PrintAuditoria(auditoria);
           }
           break;
         case "этаж":
@@ -387,12 +387,12 @@ class Program {
             Console.WriteLine("Команда отменена");
           } else {
             auditoria = SelectByFloor(AuditoriumDatabase, floor);
-            PrintAuditoria(auditoria);
+            Menu.PrintAuditoria(auditoria);
           }
           break;
         case "добавить":
           Console.WriteLine("Добавление аудитории:");
-          Menu.AddAuditorium(AuditoriumDatabase);
+          Auditorium.AddAuditorium(AuditoriumDatabase);
           break;
         case "изменить":
           Console.WriteLine("Изменение данных аудитории:");
@@ -445,7 +445,7 @@ class Program {
             if (broken) {
               Console.WriteLine("Команда отменена");
             } else {
-              Menu.EditAuditorium(AuditoriumDatabase, floor, room);
+              Auditorium.EditAuditorium(AuditoriumDatabase, floor, room);
             }
           }
 
