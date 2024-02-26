@@ -1,5 +1,6 @@
 import heapq
 
+# [weight, point1, point2]
 graph = [
     [15, 1, 2],
     [14, 1, 5],
