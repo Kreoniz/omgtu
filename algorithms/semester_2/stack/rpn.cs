@@ -34,7 +34,11 @@ class ReversePolishNotation {
         } else if (elem == "*") {
           stack.Push(n2 * n1);
         } else if (elem == "/") {
-          stack.Push(n2 / n1);
+          if (n1 == 0) {
+            throw new DivideByZeroException("Нельзя делить на ноль!");
+          } else {
+            stack.Push(n2 / n1);
+          }
         }
       }
     }
