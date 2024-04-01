@@ -32,6 +32,9 @@ class Interfaces: IMethods {
   }
 
   public double Root(double b, double e) {
+    if (e % 2 == 0 && b < 0) {
+      throw new Exception("Четная степень с отрицательным основанием");
+    }
     return Math.Pow(b, 1.0 / e);
   }
 
