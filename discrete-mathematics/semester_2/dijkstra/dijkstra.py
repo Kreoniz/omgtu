@@ -32,7 +32,7 @@ Weights = [19, 35, 13, 46, 34, 23, 67, 23, 13, 64, 97]
 start, fin = 1, 6
 s = [start]
 minDistances = {start: 0}
-ind = 0
+index = 0
 used = [1]
 
 for i in range(len(Edges)):
@@ -45,7 +45,7 @@ for i in Vertices:
         minDistances[i] = float("inf")
 
 while True:
-    currentElement = s[ind]
+    currentElement = s[index]
     possibleVertices = []
     possibleWeights = []
 
@@ -71,7 +71,7 @@ while True:
                 minEdges = key
     if minEdges != fin:
         s.append(minEdges)
-        ind += 1
+        index += 1
     else:
         minDistances[minEdges] = minDistances[minEdges] + possibleWeights.index(
             min(possibleWeights)
