@@ -1,0 +1,12 @@
+5
+abstract
+academic
+abort
+acquitment
+macroproject
+2
+c 3
+t 2
+2
+t 3
+c 2

@@ -1,0 +1,14 @@
+7
+aaa
+aba
+aab
+abb
+baa
+bba
+bab
+2
+a 3
+b 2
+2
+a 2
+b 3
